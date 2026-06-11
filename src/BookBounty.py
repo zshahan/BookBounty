@@ -230,10 +230,10 @@ class DataHandler:
                         author = "".join(reversed(author_with_sep)).title()
                         year = item["releaseDate"][:4]
 
-                        meta_profile_id = item["author"]["metadataProfileId"]
-                        endpoint = f"{self.readarr_address}/api/v1/metadataprofile/{meta_profile_id}"
-                        params = {"apikey": self.readarr_api_key}
-                        response = requests.get(endpoint, params=params, timeout=self.request_timeout)
+                        #meta_profile_id = item["author"]["metadataProfileId"]
+                        #endpoint = f"{self.readarr_address}/api/v1/metadataprofile/{meta_profile_id}"
+                        #params = {"apikey": self.readarr_api_key}
+                        #response = requests.get(endpoint, params=params, timeout=self.request_timeout)
                         allowed_languages = []
                         #if response.status_code == 200:
                         #    author_meta_profile = response.json()
