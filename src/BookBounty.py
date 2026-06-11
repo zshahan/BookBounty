@@ -223,7 +223,8 @@ class DataHandler:
 
                         title = item["title"]
                         author_and_title = item["authorTitle"]
-                        series = item["seriesTitle"]
+                        #series = item["seriesTitle"]
+                        series = ''
                         author_reversed = author_and_title.replace(title, "")
                         author_with_sep = author_reversed.split(", ")
                         author = "".join(reversed(author_with_sep)).title()
@@ -234,10 +235,10 @@ class DataHandler:
                         params = {"apikey": self.readarr_api_key}
                         response = requests.get(endpoint, params=params, timeout=self.request_timeout)
                         allowed_languages = []
-                        if response.status_code == 200:
-                            author_meta_profile = response.json()
-                            iso_langs = author_meta_profile.get("allowedLanguages", "")
-                            allowed_languages = [iso639.Lang(iso).name.lower() for iso in iso_langs.split(",") if iso639.is_language(iso)]
+                        #if response.status_code == 200:
+                        #    author_meta_profile = response.json()
+                        #    iso_langs = author_meta_profile.get("allowedLanguages", "")
+                        #    allowed_languages = [iso639.Lang(iso).name.lower() for iso in iso_langs.split(",") if iso639.is_language(iso)]
 
                         if allowed_languages == []:
                             self.general_logger.error(f"Readarr MetadataProfile API Error Code: {response.status_code}")
